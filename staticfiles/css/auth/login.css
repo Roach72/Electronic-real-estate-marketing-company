@@ -1,0 +1,106 @@
+.login-page{
+    padding: 20px;
+    background-color: #e9e9e9;
+}
+.m-size{
+    display: none;
+}
+.login-page .content .part-1{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ff695f;
+    color: white;
+    height: 95vh;
+}
+.login-page .content .md-content{
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+}
+.login-page .content .img-contant .img{
+    background-image: url(../../images/1.png);
+    height: 95vh;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px 10px 50% 10px;
+}
+.login-page .content .p-content{
+    margin-top: 100px;
+    background-color: #ff786e;
+    padding: 50px;
+    border-radius: 15px;
+}
+.login-page .content .p-content .titel{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.login-page .content .p-content .login{
+    display: flex;
+    justify-content: center;
+
+}
+
+.login-page .content .p-content .login input{
+   width: 300px;
+   height: 40px;
+   padding: 5px;
+   margin-bottom: 5px;
+   border-radius: 5px;
+   border: none;
+   box-shadow: none; 
+   font-size: larger;
+}
+.login-page .content .p-content .login button{
+    width: 100%;
+    border: none;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #03a4ed;
+    color: white;
+    font-size: larger;
+    margin-top: 5px;
+ }
+
+
+ @media (max-width: 1157px) { 
+    .login-page .content .p-content .login input{
+        width: auto;
+        height: 40px;
+
+     }
+  }
+
+  @media (max-width: 767px) { 
+    .m-size{
+        display: block;
+    }
+    .l-size{
+        display: none;
+    }
+    .login-page .content .img-contant{
+        margin-top: 5px;
+
+    }
+    .login-page .content .img-contant .img{
+        height: 47vh;
+
+    }
+    .login-page .content .part-1{
+        padding: 10px;
+        height: 47vh;
+        margin-top: 5px;
+    }
+    .login-page .content .md-content{
+        margin: 10px 0px;
+
+    }
+    .login-page .content .p-content{
+        margin-top: 40px;
+        background-color: #ff786e;
+        padding: 25px;
+        border-radius: 15px;
+    }
+   }
+
