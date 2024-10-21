@@ -1,0 +1,156 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+  .card {
+      border: none; /* إزالة الحدود الافتراضية */
+      border-radius: 8px; /* زوايا مستديرة */
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* ظل لطيف */
+      transition: transform 0.2s; /* تأثير حركة عند التحويم */
+  }
+
+  .card:hover {
+      transform: translateY(-5px); /* رفع البطاقة عند التحويم */
+  }
+
+  .card-img-top {
+      border-top-left-radius: 8px; /* زوايا مستديرة للصورة العلوية */
+      border-top-right-radius: 8px;
+      height: 200px; /* ارتفاع ثابت للصورة */
+      object-fit: cover; /* تغطية كاملة للصورة */
+  }
+
+  .card-body {
+      padding: 15px; /* حشوة داخلية */
+      background-color: #f9f9f9; /* خلفية فاتحة */
+  }
+
+  .card-title {
+      font-size: 1.25rem; /* حجم عنوان البطاقة */
+      font-weight: bold; /* خط عريض */
+      margin-bottom: 10px; /* مسافة أسفل العنوان */
+  }
+
+  .card-text {
+      font-size: 0.9rem; /* حجم نص البطاقة */
+      margin-bottom: 5px; /* مسافة بين النصوص */
+      color: #555; /* لون النص */
+  }
+
+  .btn-primary {
+      background-color: #007bff; /* لون خلفية الزر */
+      border-color: #007bff; /* لون الحدود */
+      border-radius: 20px; /* زوايا مستديرة للزر */
+      padding: 10px 20px; /* حشوة داخلية للزر */
+  }
+
+  .btn-primary:hover {
+      background-color: #0056b3; /* لون خلفية الزر عند التحويم */
+      border-color: #0056b3; /* لون الحدود عند التحويم */
+  }
+</style>
+
+<div class="container-fluid">
+    <!-- تبدأ الهيدر -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+  
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="{% url 'mainpage' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}">
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li class="scroll-to-section"><a href="{% url 'mainpage' %}" class="fs-4 active">الصفحة الرئيسية</a></li>
+                <li class="scroll-to-section"><a class="fs-4" href="{% url 'explore' %}">استكشف عقاراتنا</a></li>
+                {% if user.is_authenticated %}
+                <li class="scroll-to-section">
+                    <a  class="fs-4" href="{% url 'logout' %}">تسجيل خروج</a>
+                </li>
+            {% else %}
+                <li class="scroll-to-section">
+                    <a  class="fs-4" href="{% url 'login' %}">تسجيل دخول</a>
+                </li>
+            {% endif %}
+  
+                <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#subscribe">تواصل معنا الان</a></div></li> 
+              </ul>        
+              <a class='menu-trigger'>
+                  <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+  
+
+  
+    <div id="services" class="our-services section">
+      <div class="services-right-dec">
+  
+        <img src="{%static 'images/services-right-dec.png' %}" alt="">
+  
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="section-heading">
+                <h2>  <span>المتاح لدينا من ارض</span></h2>
+                <span> المتاح لدينا من ارض</span>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            {% for item in items %}
+            <div dir="rtl" class="col-md-4" style="margin-bottom: 10px;">
+                <div class="card h-100">
+                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name_item }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name_item }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <p class="card-text">المساحة: {{ item.area_in_meters }} متر</p>
+
+                        <br />
+                        <p class="card-text">أضيف بواسطة: {{ item.added_by_name }}</p>
+                        <a style="background-color: #ff695f; color: white;" class="btn" href="{% url 'item_detail2' item.id %}">تفاصيل</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="footer-dec">
+      <img src="{% static 'images/footer-dec.png' %}" alt="">
+    </div>
+  
+    <!-- تنتهي البانر -->
+  
+  </div>
+  
+  
+{% endblock %}

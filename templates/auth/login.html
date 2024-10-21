@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
+
+    <title>تسجيل الدخول</title>
+</head>
+<body>
+    <div class="login-page container-fluid">
+        <div class="content">
+            <div class="row">
+                <div class="l-size col-lg-8 col-md-7">
+                    <div class="img-contant">
+                        <div class="img"></div>
+                    </div>
+                </div>
+                <div dir="rtl" class="l-size col-lg-4 col-md-5">
+                    <div class="part-1">
+                        <div class="top-content">
+                            <h4>NIX</h4>
+                        </div>
+                        <div class="md-content">
+                          <h1>ابدا رحلتك معنا</h1>
+                        </div>
+                        <div class="p-content">
+                            <div class="titel"> <h4>تسجيل الدخول</h4></div>
+                            <div class="login">
+                                <form method="post">
+                                    <div style="display: flex; justify-content: center; margin: 10px 0;" >
+                                    {% if messages %}
+                                        <ul>
+                                            {% for message in messages %}
+                                                <li style="font-size: larger;">{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    </div>
+                                    {% csrf_token %}
+                                    <input placeholder="اسم المستخدم" type="text" name="username" required><br>
+                                    <input placeholder="كلمة المرور" type="password" name="password" required><br>
+                                    <button type="submit">تسجيل الدخول</button>
+
+                                </form>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 10px;">
+                            <button class="btn" style="background-color: #03a4ed; border-radius: 5px;"><a style="color: white; font-size: larger;"  href="{% url 'register' %}">انشاء حساب جديد</a></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div dir="rtl" class="m-size col-lg-4 col-md-5">
+                    <div class="part-1">
+                        <div class="top-content">
+                            <h4>NIX</h4>
+                        </div>
+                        <div class="md-content">
+                          <h1>ابدا رحلتك معنا</h1>
+                        </div>
+                        <div class="p-content">
+                            <div class="titel"> <h4>تسجيل الدخول</h4></div>
+                            <div class="login">
+                                <form method="post">
+                                    {% if messages %}
+                                    <ul>
+                                        {% for message in messages %}
+                                            <li>{{ message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    {% csrf_token %}
+                                    <input placeholder="اسم المستخدم" type="text" name="username" required><br>
+                                    <input placeholder="كلمة المرور" type="password" name="password" required><br>
+                                    <button type="submit">تسجيل الدخول</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 10px;">
+                            <button class="btn" style="background-color: #03a4ed; border-radius: 5px;"><a style="color: white; font-size: larger;"  href="{% url 'register' %}">انشاء حساب جديد</a></button>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="m-size col-lg-8 col-md-7">
+                    <div class="img-contant">
+                        <div class="img"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!---
+        <h2>تسجيل الدخول</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">اسم المستخدم:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">كلمة المرور:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">تسجيل الدخول</button>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{% url 'register' %}" class="btn"><button type="submit"> register</button></a>
+    --->
+
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,131 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/auth/register.css' %}">
+
+    <title>تسجيل الدخول</title>
+    <style>
+        .registration-form {
+
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px; /* زيادة العرض للسماح بمساحة أكبر للحقلين */
+            margin: auto;
+        }
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .registration-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #03a4ed;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .registration-form button:hover {
+            background-color: #03a4ed;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page container-fluid">
+        <div class="content">
+            <div class="row" style="display: flex; justify-content: center;">
+                <div dir="rtl" class="l-size col-md-5 col-12">
+                    <div class="part-1">
+                        <div class="top-content">
+                            <h4>NIX</h4>
+                        </div>
+                        <div class="md-content">
+                          <h1>ابدا رحلتك معنا</h1>
+                        </div>
+                        <div class="p-content">
+                            <div class="registration-form">
+                                <div style="display: flex; justify-content: center;">
+                                    {% if form.errors %}
+                                        <ul>
+                                            {% for field, errors in form.errors.items %}
+                                                <li style="font-size: larger;">{{ field }}: {{ errors|join:", " }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                                <h2>تسجيل المستخدم</h2>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{ form.username }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.full_name }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.email }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.mobile_number }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.password1 }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.password2 }}
+                                    </div>
+                                    <button type="submit">تسجيل</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!---
+        <h2>تسجيل الدخول</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">اسم المستخدم:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">كلمة المرور:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">تسجيل الدخول</button>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <a href="{% url 'register' %}" class="btn"><button type="submit"> register</button></a>
+    --->
+
+
+</body>
+</html>
+{% endblock %}
