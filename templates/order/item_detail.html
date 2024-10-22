@@ -65,8 +65,8 @@ h3 {
 }
 
 .image-card img {
-    width: 100%; /* جعل الصورة تأخذ عرض البطاقة بالكامل */
-    height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+    width: 400px; /* جعل الصورة تأخذ عرض البطاقة بالكامل */
+    height: 400px; /* الحفاظ على نسبة العرض إلى الارتفاع */
     border-radius: 8px; /* زوايا مستديرة للصورة */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل لطيف */
     transition: transform 0.3s; /* تأثير التحويل عند التمرير */
@@ -228,7 +228,7 @@ h3 {
                     <div class="additional-images row">
                         {% for image in additional_images %}
                             <div class="image-card col-md-4">
-                                <img src="{{ image.image.url }}" alt="صورة إضافية">
+                                <img   src="{{ image.image.url }}" alt="صورة إضافية">
                             </div>
                         {% endfor %}
                     </div>

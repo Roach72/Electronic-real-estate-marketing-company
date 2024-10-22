@@ -129,14 +129,14 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ item.name_item }}</h5>
                         <p class="card-text">{{ item.description }}</p>
-                        <p class="card-text">المساحة: {{ item.area_in_meters }} متر</p>
+                        <p class="card-text">المساحة {{ item.area_in_meters }} متر</p>
 
 
 
 
                         <br />
-                        <p class="card-text">أضيف بواسطة: {{ item.added_by_name }}</p>
-                        <a href="{% url 'item_detail' item.id %}" class="btn btn-primary">عرض التفاصيل</a>
+                       <!--<p class="card-text">أضيف بواسطة: {{ item.added_by_name }}</p>--> 
+                        <a href="{% url 'item_detail' item.id %}" style="background-color: #ff695f; color: white;" class="btn ">عرض التفاصيل</a>
                     </div>
                 </div>
             </div>
