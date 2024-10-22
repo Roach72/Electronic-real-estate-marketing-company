@@ -124,8 +124,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# تحديد مسار ملفات static في بيئة الإنتاج
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# تحديد المجلدات التي تحتوي على ملفات static
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
