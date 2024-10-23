@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&%&+42huto96xl$1tc3t&smb)j57wpb*uu(tdytq0u0(#8t2b-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['vercel.app']
 
 
 # Application definition
@@ -125,7 +125,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # تحديد مسار ملفات static في بيئة الإنتاج
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static'),
+
 
 # تحديد المجلدات التي تحتوي على ملفات static
 STATICFILES_DIRS = [
