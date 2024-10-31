@@ -33,15 +33,16 @@
                 <li class="scroll-to-section"><a href="{% url 'mainpage' %}" class="fs-4 active">الصفحة الرئيسية</a></li>
                 <li class="scroll-to-section"><a class="fs-4" href="{% url 'explore' %}">استكشف عقاراتنا</a></li>
                 {% if user.is_authenticated %}
-                <li class="scroll-to-section">
-                    <a  class="fs-4" href="{% url 'logout' %}">تسجيل خروج</a>
-                </li>
-            {% else %}
-                <li class="scroll-to-section">
-                    <a  class="fs-4" href="{% url 'login' %}">تسجيل دخول</a>
-                </li>
-            {% endif %}
-                <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#subscribe">تواصل معنا الان</a></div></li> 
+                    <li class="scroll-to-section">
+                        <a  class="fs-4" href="{% url 'logout' %}"> <i class="fa-solid fa-right-from-bracket"></i></a>
+                    </li>
+                {% else %}
+                    <li class="scroll-to-section">
+                        <a  class="fs-4" href="{% url 'login' %}"> <i class="fa-solid fa-right-to-bracket fa-bounce"></i></a>
+                    </li>
+                {% endif %}
+
+             <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#subscribe">  <i class="fa-solid fa-comment-sms"></i></a></div></li> 
               </ul>        
               <a class='menu-trigger'>
                   <span>Menu</span>

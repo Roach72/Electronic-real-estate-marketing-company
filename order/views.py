@@ -7,6 +7,7 @@ from django.contrib import messages
 from .models import Item, ItemImage, Item2, ItemImage2, Item3, ItemImage3  # استيراد النموذج ItemImage أيضًا
 
 @login_required
+
 def create_item(request):
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
@@ -15,19 +16,22 @@ def create_item(request):
             item.added_by = request.user
             item.save()
 
-            # هنا نقوم بتحميل الصور الإضافية
-            additional_images = request.FILES.getlist('additional_images')  # تأكد من الحصول على الصور الإضافية
+            # تحميل الصور الإضافية
+            additional_images = request.FILES.getlist('additional_images')
             for img in additional_images:
-                item_image = ItemImage(item=item, image=img)  # إنشاء كائن جديد من ItemImage
-                item_image.save()  # حفظ الصورة في قاعدة البيانات
+                item_image = ItemImage(item=item, image=img)
+                item_image.save()
 
             messages.success(request, "تم إضافة العنصر بنجاح!")
             return redirect('item_list')
         else:
+            # هنا يمكن إضافة رسالة للمستخدم
             messages.error(request, "هناك خطأ في البيانات المدخلة.")
     else:
         form = ItemForm()
+
     return render(request, 'order/create_item.html', {'form': form, 'image_form': ItemImageForm()})
+    
 @login_required
 def item_list(request):
     items = Item.objects.all()  # عرض كل العناصر

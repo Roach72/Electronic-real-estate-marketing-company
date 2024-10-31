@@ -7,12 +7,12 @@ class Item(models.Model):
     description = models.TextField()        
     image = models.ImageField(upload_to='images/')  
     video = models.FileField(upload_to='videos/', null=True, blank=True)  # حقل لتحميل الفيديو
-    area_in_meters = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)  
-    room = models.IntegerField(default=0)  # إضافة قيمة افتراضية 0
-    kitchen = models.IntegerField(default=0)  # إضافة قيمة افتراضية 0
-    bathroom = models.IntegerField(default=0)  # إضافة قيمة افتراضية 0
-    hall = models.IntegerField(default=0)  # إضافة قيمة افتراضية 0
-    Plakona = models.IntegerField(default=0)  # إضافة قيمة افتراضية 0
+    area_in_meters = models.DecimalField(max_digits=10, decimal_places=2 )  
+    room = models.IntegerField()  # إضافة قيمة افتراضية 0
+    kitchen = models.IntegerField()  # إضافة قيمة افتراضية 0
+    bathroom = models.IntegerField()  # إضافة قيمة افتراضية 0
+    hall = models.IntegerField()  # إضافة قيمة افتراضية 0
+    Plakona = models.IntegerField()  # إضافة قيمة افتراضية 0
     added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     added_by_name = models.CharField(max_length=150, editable=False, null=True)
 

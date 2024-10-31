@@ -33,7 +33,7 @@ def custom_login_view(request):
 
 def custom_logout_view(request):
     logout(request)
-    return HttpResponseRedirect(reverse('login')) 
+    return HttpResponseRedirect(reverse('mainpage')) 
     
 
 def register(request):

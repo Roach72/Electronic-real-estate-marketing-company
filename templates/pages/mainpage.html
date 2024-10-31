@@ -46,15 +46,15 @@
               <li class="scroll-to-section"><a class="fs-4" href="{% url 'choice' %}">أضف عقارك</a></li>
                 {% if user.is_authenticated %}
                     <li class="scroll-to-section">
-                        <a  class="fs-4" href="{% url 'logout' %}">تسجيل خروج</a>
+                        <a  class="fs-4" href="{% url 'logout' %}"> <i class="fa-solid fa-right-from-bracket"></i></a>
                     </li>
                 {% else %}
                     <li class="scroll-to-section">
-                        <a  class="fs-4" href="{% url 'login' %}">تسجيل دخول</a>
+                        <a  class="fs-4" href="{% url 'login' %}"> <i class="fa-solid fa-right-to-bracket fa-bounce"></i></a>
                     </li>
                 {% endif %}
 
-             <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#subscribe">تواصل معنا الان</a></div></li> 
+             <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#subscribe">  <i class="fa-solid fa-comment-sms"></i></a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -79,10 +79,9 @@
                   <h5 style="margin: 10px 0;">نجعل التسويق العقاري أسهل وأكثر فعالية من خلال استراتيجيات التسويق الإلكتروني الحديثة</h5>
                   <div  class="down-buttons">
                     <div class="main-blue-button-hover" style="margin-top: 10px">
-                      <a href="#contact">قم بعرض عقارك</a>
+                      <a href="#contact"> <i class="fa-solid fa-comment-sms fa-beat-fade"></i></a>
                     </div>
                     <div class="call-button" style="margin-top: 10px">
-                      <a href="#"><i class="fa fa-phone"></i> 010-020-0340</a>
                     </div>
                   </div>
                 </div>
@@ -91,10 +90,9 @@
                   <h5 style="margin: 10px 0;">  نقدم استراتيجيات تسويق موجهة تستند إلى البيانات، مما يساعدك في الوصول إلى الجمهور المناسب بسرعة</h5>
                   <div class="down-buttons">
                     <div class="main-blue-button-hover" style="margin-top: 10px">
-                      <a href="#services">تواصل معنا </a>
+                      <a href="#services"> <i class="fa-solid fa-comment-sms fa-beat-fade"></i> </a>
                     </div>
                     <div class="call-button" style="margin-top: 10px">
-                      <a href="#"><i class="fa fa-phone"></i> 090-080-0760</a>
                     </div>
                   </div>
                 </div>
@@ -347,7 +345,7 @@
               <li>محل تجار</li>
             </ul>
             <div class="main-blue-button-hover">
-              <a href="#">استكشف</a>
+              <a href="{% url 'explore' %}">استكشف</a>
             </div>
           </div>
         </div>
@@ -362,7 +360,7 @@
               <li>محل تجار</li>
             </ul>
             <div class="main-blue-button-hover">
-              <a href="#">أضف الان</a>
+              <a href="{% url 'choice' %}">أضف الان</a>
             </div>
           </div>
         </div>
